@@ -1,3 +1,9 @@
+xfce4-power-manager (1.4.4-1mint2) rafaela; urgency=medium
+
+  * Switched back to consolekit (fixes suspend)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 07 Jul 2015 11:56:23 +0200
+
 xfce4-power-manager (1.4.4-0ubuntu1~14.04.1mint1) rafaela; urgency=medium
 
   * New upstream version
