@@ -1,30 +1,68 @@
-xfce4-power-manager (1.4.4-1mint2) rafaela; urgency=medium
+xfce4-power-manager (1.4.4-4ubuntu2) xenial; urgency=high
 
-  * Switched back to consolekit (fixes suspend)
+  * Drop redundant libsystemd-login-dev build-dependency. This package
+    doesn't link against libsystemd, and instead detects logind presence
+    dynamically and calls out to it via DBus.
 
- -- Clement Lefebvre <root@linuxmint.com>  Tue, 07 Jul 2015 11:56:23 +0200
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Mon, 04 Jan 2016 15:05:59 +0000
 
-xfce4-power-manager (1.4.4-0ubuntu1~14.04.1mint1) rafaela; urgency=medium
+xfce4-power-manager (1.4.4-4ubuntu1) wily; urgency=medium
 
-  * New upstream version
+  * Merge from Debian. Remaining Ubuntu changes:
+  * debian/control
+    - Add libsystemd-login-dev build dep to use logind for session tracking.
+    - Enable building of lxpanel plugin
+    - Update depends for xfce4-power-manager-plugins to xfce4-panel | lxpanel
+  * debian/rules
+    - Do not include xfce4-panel in shlibs
 
- -- Clement Lefebvre <root@linuxmint.com>  Tue, 07 Jul 2015 10:56:14 +0200
+ -- Jackson Doak <noskcaj@ubuntu.com>  Tue, 26 May 2015 06:20:12 +1000
 
-xfce4-power-manager (1.4.3-0ubuntu1~14.04.1) trusty; urgency=medium
+xfce4-power-manager (1.4.4-4) unstable; urgency=medium
 
-  * Fix upower depends
+  * debian/rules:
+    - use linux suspend/hibernate backend on Linux and Hurd, and freebsd on
+    kFreeBSD.
 
- -- Sean Davis <smd.seandavis@gmail.com>  Tue, 03 Mar 2015 06:23:55 -0500
+ -- Yves-Alexis Perez <corsac@debian.org>  Sat, 16 May 2015 10:32:12 +0200
 
-xfce4-power-manager (1.4.3-0ubuntu1~14.04) trusty; urgency=medium
+xfce4-power-manager (1.4.4-3) unstable; urgency=medium
 
-  * Update for upower < 0.99
+  * Upload to unstable.
 
- -- Sean Davis <smd.seandavis@gmail.com>  Mon, 02 Mar 2015 21:34:36 -0500
+ -- Yves-Alexis Perez <corsac@debian.org>  Wed, 06 May 2015 18:15:26 +0200
 
-xfce4-power-manager (1.4.3-0ubuntu1~14.10) utopic; urgency=medium
+xfce4-power-manager (1.4.4-2) experimental; urgency=medium
 
-  * New PPA release.
+  * debian/patches:
+    - 01_fix-light-locker-schema-loading added, make schema search recursive,
+      fix detection of light-locker settings.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Thu, 23 Apr 2015 23:13:34 +0200
+
+xfce4-power-manager (1.4.4-1) experimental; urgency=medium
+
+  * New upstream release.
+    - the tray icon is back.                                    closes: #755551
+  * debian/NEWS: add a note about the re-introduction of the tray icon. 
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Sun, 22 Mar 2015 15:29:32 +0100
+
+xfce4-power-manager (1.4.3-1) experimental; urgency=medium
+
+  * New upstream release.
+    - add symlinks for UPS icons.                               closes: #762500
+  * debian/patches:
+    - 0001-Use-translated-device-type-for-unknown-devices-bug-1 dropped,
+      included upstream.
+  * debian/control:
+    - drop libsystemd-daemon-dev build-dep, obsolete.           closes: #779778
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Sun, 08 Mar 2015 21:57:47 +0100
+
+xfce4-power-manager (1.4.3-0ubuntu1) vivid; urgency=medium
+
+  * New upstream release. LP: #1424887
 
  -- Jackson Doak <noskcaj@ubuntu.com>  Sun, 01 Mar 2015 12:18:45 +1100
 
@@ -66,8 +104,7 @@ xfce4-power-manager (1.4.1-2ubuntu1) vivid; urgency=medium
 
   * Merge from Debian. Remaining Ubuntu changes:
   * debian/control
-    - Switch to using logind for session tracking. Depend on systemd-services
-      and add libsystemd-login-dev build dependency.
+    - Add libsystemd-login-dev build dep to use logind for session tracking.
     - Enable building of lxpanel plugin
     - Update depends for xfce4-power-manager-plugins to xfce4-panel | lxpanel
   * debian/rules

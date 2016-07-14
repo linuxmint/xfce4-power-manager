@@ -26,7 +26,7 @@
 
 G_BEGIN_DECLS
 
-#define LOGIND_RUNNING() (access ("/etc/xfce4-power-manager/use-logind", F_OK) >= 0)
+#define LOGIND_RUNNING() (access ("/run/systemd/seats/", F_OK) >= 0)
 
 #define XFPM_TYPE_SYSTEMD            (xfpm_systemd_get_type () )
 #define XFPM_SYSTEMD(o)              (G_TYPE_CHECK_INSTANCE_CAST ((o), XFPM_TYPE_SYSTEMD, XfpmSystemd))
